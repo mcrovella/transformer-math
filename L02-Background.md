@@ -10,9 +10,13 @@ It follows that:
 
 $$Ax + Ay = A(x + y)$$  
 
+showing that $\text{col}(A)$ is a subspace.
+
 The null space of $A$ is defined as:  
 
 $$\text{Nul}(A) = \{x \mid Ax = 0\}$$  
+
+We can likewise show that $\text{Nul}(A)$ is a subspace: for $x$ and $y$ in $\text{Nul}(A)$. $x + y$ is in $\text{Nul}(A)$
 
 Any vector $y \in \mathbb{R}^n$ can be written as $y = z + c$, where $z \in \text{Nul}(A)$ and $Ac = y$. Thus, the general solution to $Ax = 0$ involves adding any vector from the null space to a particular solution.
 
@@ -20,7 +24,7 @@ Any vector $y \in \mathbb{R}^n$ can be written as $y = z + c$, where $z \in \tex
 
 * $P_H x$ represents the projection of $x$ onto subspace $H$.
 * The projection matrix $P$ satisfies:
-  $$P^2 = P$$ and $$P(Px) = Px$$
+  $P^2 = P$ and $P(Px) = Px$
 * **Oblique projector**: A projector that is not necessarily orthogonal to the subspace.
 * **Orthogonal projector**: A projector where $P$ is symmetric, i.e., $P = P^T$. 
 ($P_{symm} \leftrightarrow P$ is orthogonal projector.)
@@ -63,7 +67,7 @@ $$x = x_s + x_{s^{\perp}}$$
 
 Additionally, it holds:
 
-$$(I - P_H)(I - P_H) = I^2 - 2P_H + P_H^2$$
+$$(I - P_H)(I - P_H) = I^2 - 2P_H + P_H^2 = (I - P_H)$$
 
 ## Homework
 
@@ -78,9 +82,9 @@ Let $A$ be a square matrix.
 
 If $A$ is symmetric, then any two eigenvectors of $A$ with distinct eigenvalues are orthogonal.  $A$ can be diagonalized using its eigenvectors:
 
-$$A = E \Lambda E^{-1}$$
+$$A = P \Lambda P^{-1}$$
 
-where $E$ is the matrix of eigenvectors and $\Lambda$ is the diagonal matrix of eigenvalues.
+where $P$ is the matrix of eigenvectors and $\Lambda$ is the diagonal matrix of eigenvalues.
 
 Let $v_1, v_2$ be eigenvectors of $A$ with distinct eigenvalues $\lambda_1, \lambda_2$. Then the following hold:
 
@@ -94,9 +98,9 @@ Therefore, $v_1$ and $v_2$ are orthogonal.
 
 Then, we can write the diagonalization as:
 
-$$A = E \Lambda E^{-1} = P \Lambda P^T$$
+$$A = P \Lambda P^{-1} = P \Lambda P^T$$
 
-where $P$ is an orthogonal matrix (since for symmetric matrices, $E^{-1} = P^T$).
+where $P$ is an orthogonal matrix (since for symmetric matrices, $P^{-1} = P^T$).
 
 ## Courant-Fisher Theorem
 
