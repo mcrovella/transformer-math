@@ -29,15 +29,13 @@ $$<x, y> = x^T A y$$
 
 If you write out:
 
-$$
-\left(\begin{array}{cc} 
+$$\left(\begin{array}{cc} 
 x_1 & x_2
 \end{array}\right)
 \left(\begin{array}{cc} 
 a_{11} & a_{12} \\
 a_{21} & a_{22} \\
-\end{array}\right) 
- = 
+\end{array}\right) =
 \left(\begin{array}{cc} 
 y_1 \\ 
 y_2 
@@ -53,19 +51,19 @@ if you hold any of x constant, y is linear, vice versa
 ### Some properties of bilinear form
 
 - $<w, v> = <v, w>$, they are symmetric
-- <v, v> > 0 for all v, positive definite
+- $<v, v>  > 0$ for all $v$, positive definite
 - inner product is a symmetric, positive, definite bilinear form
-  ($x^T y$ is not THE inner product anymore, just a specific instance, where A = I)
+  ($x^T y$ is not THE inner product anymore, just a specific instance, where $A = I$)
 
 ## Quadratic form
 
-$$ Q(x) = <x, x> = \sum a_{ij} x_i x_j  $$
+$$ Q(x) =  < x, x >  = \sum a_{ij} x_i x_j  $$
 
-which takes form x^T A x
+which takes form $x^T A x$
 
-(recall that $\max_{\|x\|=1} x^T A x = \lambda_1)
+(recall that $\max_{\|x\|=1} x^T A x = \lambda_1$)
 
-say if we are in 2d space: Q(x) = ax^2, this is just a parabola opening up
+say if we are in 2d space: $Q(x) = ax^2$, this is just a parabola opening up
 
 If we are in 3d space, then it's a cup shape, where the 2d xy plane on which the cup sits on is the vector space
 
@@ -80,7 +78,7 @@ If we have random vectors sampled from $x \sim N(0, \Sigma)$, where $\Sigma = di
 
 then we have:
 
-$$\sqrt{n}<x,y> \rightarrow N(0, \sigma^2) $$
+$$\sqrt{n} < x , y > \rightarrow N(0, \sigma^2) $$
 
 as you increase the $n$ (dimension), the inner products becomes a distribution that is narrower and narrower (is almost always orthogonal)
 
@@ -89,7 +87,10 @@ as dimension n gets bigger and bigger, points tend to distribute at the edge, at
 
 ### How many nearly orthogonal vectors are there in high dimensions?
 proof sketch: sample a vector, then draw a theta angle around the vector which creates a patch, see how many patch can you fit
-Answer: $e^{n\log{\frac{1}{\sin\theta}}}$
+
+Answer: 
+
+$$e^{n\log{\frac{1}{\sin\theta}}}$$
 
 ![angles vs num vectors in gpt2-3](figures/near_orth_vecs_gpt2_vs_3.jpg)
 
