@@ -1,9 +1,11 @@
-# Oct 11
+# Math for Transformers
+**Fourth lecture: Fri Oct 11**  
+Scribe: Peter Tang
 
 ## Definition of Bilinear form
 A bilinear form on a real vector space V
 
-$f: V \times V \rightarrow K$  assigns value to vector pair (v_1, v_2) in a way that is linear in each vector
+$f: V \times V \rightarrow K$  assigns value to vector pair $(v_1, v_2)$ in a way that is linear in each vector
 
 ### What does linear wrt to x and y mean?
 
@@ -26,8 +28,6 @@ Every bilinear form can be expressed as:
 $$<x, y> = x^T A y$$
 
 If you write out:
-
-[//]: # ([x_1, x_2] [a_11, a_12; a_21, a_22] [y_1; y_2])
 
 $$
 \left(\begin{array}{cc} 
