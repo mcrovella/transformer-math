@@ -43,7 +43,7 @@ Among all vectors of length 1 in $\mathbb{R}^n$ (i.e., $\|x\| = 1$ in $\mathbb{R
 In the image below, the matrix $A \in \mathbb{R}^{2 \times 2}$ maps a point from the unit circle to a point on the ellipse. The vector that maps to the farthest point on the ellipse corresponds to the one that maximizes $\|Ax\|$.
 
 
-![Transformation from Circle to Ellipse](c2e.png)
+![Transformation from Circle to Ellipse](figures/c2e.png)
 
 This is how linear transformations stretch or shrink vectors.
 
