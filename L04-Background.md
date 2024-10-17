@@ -116,6 +116,8 @@ For GPT2-small, number of vectors that have inner products that is 0.25 or great
 
 for GPT3, you only need to have inner product of more than 0.05 to store different concepts (for it to treat as different concepts), so they can work with more minute differences.
 
+Reference: “Random packings and coverings of the unit n-sphere” - A.D.Wyner
+
 ### What does this mean for residual stream?
 
 in residual stream, x = (z + y + w), if the inputs don't interact, the output will contain all the input concepts
