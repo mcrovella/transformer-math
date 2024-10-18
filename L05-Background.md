@@ -41,13 +41,13 @@ The trick of adding another dimension to our coordinates in order to let us impl
 
 In the previous lecture, we had the expression for an attention module:
 
-$$(XW_Q + \bm{1} \mathbf{b}_Q^T) (X W_K + \bm{1} \mathbf{b}_K^T)^T $$ 
+$$(XW_Q + \textbf{1} \mathbf{b}_Q^T) (X W_K + \textbf{1} \mathbf{b}_K^T)^T $$ 
 
-Notice that $\bm{1} \mathbf{b}_Q^T$ and $\bm{1} \mathbf{b}_K^T$ are translations!
+Notice that $\textbf{1} \mathbf{b}_Q^T$ and $\textbf{1} \mathbf{b}_K^T$ are translations!
 
 Thus, if we consider:
 
-$$X W_Q W_k^T X^T + X W_Q \mathbf{b}_K \bm{1}^T + \bm{1}\mathbf{b}_Q^T W_K^T X^T + \bm{1} \mathbf{b}_Q^T \mathbf{b}_K \bm{1}^T$$
+$$X W_Q W_k^T X^T + X W_Q \mathbf{b}_K \textbf{1}^T + \textbf{1}\mathbf{b}_Q^T W_K^T X^T + \textbf{1} \mathbf{b}_Q^T \mathbf{b}_K \textbf{1}^T$$
 
 and we use $\tilde{\mathbf{x}}_i = \begin{bmatrix} \mathbf{x}_i \\ 1\end{bmatrix}$ and $\tilde{\mathbf{x}}_j = \begin{bmatrix} \mathbf{x}_j \\ 1\end{bmatrix}$ (homogenous coordinates), we can write this affine transfomation as a linear transformation of the form:
 
