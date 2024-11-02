@@ -6,10 +6,10 @@ Scribe : Lucas Tassis
 
 ## Introduction
 
-Why should we learn causal models for LLMS?
+Why should we learn causal models for LLMs?
 
-1. Build causal models for internal processes of an LLM;
-2. LLM can be viewed as a causal model.
+1. We can build causal models for internal processes of an LLM; or
+2. LLM can itself be viewed as a causal model.
 
 Two important people in the development of causal models in computer science were:
 
@@ -35,9 +35,9 @@ $\mathrm{Grade} = \{\mathrm{A}, \mathrm{B}, \mathrm{C}\}$
 
 $\text{Letter of Recommendation} = \{\mathrm{strong}, \mathrm{weak}\}$
 
-First, notice that even in this "simple" example, if we had to write a joint distribution, we would have to create a table with 48 entries. However, if we had this table, we would be able to answer any observational question (and marginalization).
+First, notice that even in this "simple" example, if we had to write a joint distribution, we would have to create a table with 48 entries. However, if we had this table, we would be able to answer any observational question (via marginalization and/or conditioning).
 
-Can we try to capture the same information more compactly? Unfortunately in general, we cannot, however, in the real world, we might be able to enforce some relations or restrictions to the variables! This is where graphical models helps us. 
+Can we try to capture the same information more compactly? Unfortunately in general, we cannot.  However, in the real world, we might be able to exploit some relations or restrictions to the variables! This is where graphical models helps us. 
 
 ![](figures/L06_student_graph.png)
 
@@ -57,7 +57,7 @@ $$P[I, C, S, G, L] = P[L \mid G] P[S \mid I] P[G \mid I, D] P[I] P[D]$$
 
 With this expression, we can answer any observational question!
 
-One important point is that by assuming this model is true, we are inputting *causality*.
+One important point is that by assuming this model is true, we are assuming *causality*.
 
 Now that we established this model, if we wanted to ask how likely a random student is to get a strong recommendation? We could just compute:
 
@@ -78,19 +78,28 @@ Now that we have some background on PGMs, we focus our attention on causal model
 
 These are questions that cannot be answered by the tactics showed in the previous section, because we what asking *what if*, we are not simply observing things. Therefore, all we can get using PGMs are *correlation*!
 
-Imagine that in the example previously showed, the random student hired a hacker to change his grade in order to get a better letter of recommendation. The result would be a model where his grade is not determined by his performance anymore, thus our graphical model would look like:
+For example, imagine that in the example previously showed, the random student hired a hacker to change his grade to an "A" in order to get a better letter of recommendation. 
+
+This is called a **do-intervention**, and it is a type of **causal intervention**. 
+
+To predict the effects of a do-intervention like $\mathrm{do(}X=x\mathrm{)}$, we must do the following:
+1. Set the intervened variable to the value, ie, set $X$ to the value $x$.   This can be thought of as replacing the distribution of the variable $X$ with a new one that is constant for $x$.
+1. Erase all incoming edges to the variable $X$.
+
+In the case of the hacker-changed grade, the result would be a model where the student's grade is not determined by their performance anymore, thus our graphical model would look like:
 
 ![](figures/L06_student_grapg_mutilated.png)
 
-This is called a **do-intervention**, and it is a type of **causal intervention**. Notice that we do not have arrows connecting $\mathrm{Difficulty}$ and $\mathrm{Intelligence}$ to $\mathrm{Grade}$ anymore. Notice that $P[S \mid \mathrm{do(}G=\mathrm{A})]$ is still the same as the one in the previous network, and the probability of the letter would be $P[L \mid \mathrm{}G=\mathrm{A}]$.
+
+Notice that we do not have arrows connecting $\mathrm{Difficulty}$ and $\mathrm{Intelligence}$ to $\mathrm{Grade}$ anymore. Notice that $P[S \mid \mathrm{do(}G=\mathrm{A})]$ is still the same as the one in the previous network, and the probability of the letter would be $P[L \mid \mathrm{}G=\mathrm{A}]$.
 
 Assume now that we have a slightly different graph, and we do the same intervention:
 
 ![](figures/L06_student_graph_new.png)
 
-In this case, the answer to the query $P[L \mid \mathrm{do(}G=\mathrm{A})]$ is not the same as $P[L \mid \mathrm{}G=\mathrm{A}]$, because the probability of the letter also depends on the SAT score. Thus, $P[L \mid \mathrm{do(}G=\mathrm{A})]$ is not a value we can get from any computation on the model!
+In this case, the answer to the query $P[L \mid \mathrm{do(}G=\mathrm{A})]$ is not the same as $P[L \mid \mathrm{}G=\mathrm{A}]$, because the probability of the letter also depends on the SAT score. Thus, $P[L \mid \mathrm{do(}G=\mathrm{A})]$ is not a value we can get from any computation on the probabilistic model!
 
-Finally, one important concept is that, in this last scenario $\mathrm{Intelligence}$ is a **confounding factor**. This variable induce correlation between observed variables, but do not correspond to causal relations between them!
+Finally, one important concept is that, in this last scenario $\mathrm{Intelligence}$ is a **confounding factor**. A confounder is a variable that induces correlation between observed variables, where there is not a causal relations between them.
 
 ## Why is all of this important for LLMs?
 
