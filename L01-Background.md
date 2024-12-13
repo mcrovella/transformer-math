@@ -14,7 +14,7 @@ $\mathbb{R}^{d}$ is the set of all vectors having $d$ components.
 
 ## Span
 
-$Span \{ v_1, \cdots, v_p\} $ is the set of all linear combinations of $v_1, \cdots, v_p$: $a_1v_1 + \cdots + a_pv_p$.
+$\text{Span} \{ v_1, \cdots, v_p\}$ is the set of all linear combinations of $v_1, \cdots, v_p$: $a_1v_1 + \cdots + a_pv_p$.
 
 ## Subspaces
 
